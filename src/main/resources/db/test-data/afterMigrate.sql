@@ -1,0 +1,20 @@
+set foreign_key_checks = 0;
+
+delete from users;
+delete from transaction;
+
+set foreign_key_checks = 1;
+
+alter table users auto_increment = 1;
+alter table transaction auto_increment = 1;
+
+INSERT INTO users (full_name, cpf, email, password, user_type, active_status) VALUES ('Lex Lutor', '24242424213','lex@email.com','12345','STANDARD',1);
+INSERT INTO users (full_name, cpf, email, password, user_type, active_status) VALUES ('Clark Kent', '26587459875','clark@email.com','12345','STANDARD',1);
+
+INSERT INTO transaction ( type, amount, total, user_id, ref_user_id) VALUES ('ENTRADA', '250','250',1,2);
+INSERT INTO transaction ( type, amount, total, user_id, ref_user_id) VALUES ('ENTRADA', '250','500',1,2);
+INSERT INTO transaction ( type, amount, total, user_id, ref_user_id) VALUES ('ENTRADA', '500','1000',1,2);
+
+INSERT INTO transaction ( type, amount, total, user_id, ref_user_id) VALUES ('ENTRADA', '100','100',2,1);
+
+
