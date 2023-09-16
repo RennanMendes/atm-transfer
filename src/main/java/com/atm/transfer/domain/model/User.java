@@ -1,5 +1,6 @@
 package com.atm.transfer.domain.model;
 
+import com.atm.transfer.domain.dto.UserDTO;
 import com.atm.transfer.domain.enumerated.UserType;
 import jakarta.persistence.*;
 
@@ -22,8 +23,10 @@ public class User {
 
     private String fullName;
 
+    @Column(unique = true)
     private String cpf;
 
+    @Column(unique = true)
     private String email;
 
     private String password;
@@ -32,6 +35,19 @@ public class User {
     private UserType userType;
 
     private boolean activeStatus;
+
+    public User(UserDTO data) {
+        this.fullName = data.fullName();
+        this.cpf = data.cpf();
+        this.email = data.email();
+        this.password = data.password();
+        this.userType = UserType.STANDARD;
+        this.activeStatus = true;
+    }
+
+    public void setActiveStatus(boolean activeStatus) {
+        this.activeStatus = activeStatus;
+    }
 
     @Override
     public String toString() {
