@@ -1,6 +1,7 @@
 package com.atm.transfer.domain.service;
 
 import com.atm.transfer.domain.dto.UserDTO;
+import com.atm.transfer.domain.exception.UserNotFoundException;
 import com.atm.transfer.domain.model.User;
 import com.atm.transfer.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class UserService {
     }
 
     public User findUserById(Long id) throws Exception {
-        return repository.findById(id).orElseThrow(()->new Exception("Usuario não encontrado"));
+        return repository.findById(id).orElseThrow(()->new UserNotFoundException());
     }
 
     public List<User> findAll() {
