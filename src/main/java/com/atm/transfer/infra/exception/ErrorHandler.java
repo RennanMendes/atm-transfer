@@ -1,2 +1,4 @@
-package com.atm.transfer.infra.exception;public class ErrorHandler {
+package com.atm.transfer.infra.exception;
+
+public class ErrorHandler {
 }
