@@ -1,6 +1,6 @@
 package com.atm.transfer.domain.model;
 
-import com.atm.transfer.domain.dto.UserDTO;
+import com.atm.transfer.domain.dto.user.UserDTO;
 import com.atm.transfer.domain.enumerated.UserType;
 import jakarta.persistence.*;
 

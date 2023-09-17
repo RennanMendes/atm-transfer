@@ -1,6 +1,6 @@
 package com.atm.transfer.domain.service;
 
-import com.atm.transfer.domain.dto.UserDTO;
+import com.atm.transfer.domain.dto.user.UserDTO;
 import com.atm.transfer.domain.exception.UserNotFoundException;
 import com.atm.transfer.domain.model.User;
 import com.atm.transfer.domain.repository.UserRepository;

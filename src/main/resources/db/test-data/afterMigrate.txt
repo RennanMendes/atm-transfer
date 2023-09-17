@@ -16,5 +16,3 @@ INSERT INTO transaction ( type, amount, total, user_id, ref_user_id) VALUES ('EN
 INSERT INTO transaction ( type, amount, total, user_id, ref_user_id) VALUES ('ENTRADA', '500','1000',1,2);
 
 INSERT INTO transaction ( type, amount, total, user_id, ref_user_id) VALUES ('ENTRADA', '100','100',2,1);
-
-

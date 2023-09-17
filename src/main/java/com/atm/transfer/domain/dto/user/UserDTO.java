@@ -1,4 +1,4 @@
-package com.atm.transfer.domain.dto;
+package com.atm.transfer.domain.dto.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

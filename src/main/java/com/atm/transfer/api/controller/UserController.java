@@ -1,6 +1,6 @@
 package com.atm.transfer.api.controller;
 
-import com.atm.transfer.domain.dto.UserDTO;
+import com.atm.transfer.domain.dto.user.UserDTO;
 import com.atm.transfer.domain.model.User;
 import com.atm.transfer.domain.service.UserService;
 import jakarta.validation.Valid;
