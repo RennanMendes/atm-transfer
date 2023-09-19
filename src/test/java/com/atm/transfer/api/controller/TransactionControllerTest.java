@@ -44,9 +44,9 @@ class TransactionControllerTest {
 
     @Test
     void shouldReturnStatus400_WhenTransactionInvalid() throws Exception {
-        ResultActions payerNull = createTransaction(null, 2L, BigDecimal.TEN);
-        ResultActions payeeNull = createTransaction(1L, null, BigDecimal.TEN);
-        ResultActions valueNull = createTransaction(1L, 2L, null);
+        ResultActions payerNull = createTransactionMock(null, 2L, BigDecimal.TEN);
+        ResultActions payeeNull = createTransactionMock(1L, null, BigDecimal.TEN);
+        ResultActions valueNull = createTransactionMock(1L, 2L, null);
 
         assertEquals(HttpStatus.BAD_REQUEST.value(), payerNull.andReturn().getResponse().getStatus());
         assertEquals(HttpStatus.BAD_REQUEST.value(), payeeNull.andReturn().getResponse().getStatus());
@@ -58,14 +58,14 @@ class TransactionControllerTest {
         TransactionDTO expectedDTO = createTrasactionDTO();
         when(transactionService.transfer(any())).thenReturn(expectedDTO);
 
-        ResultActions resultActions = createTransaction(1L, 2L, BigDecimal.TEN);
+        ResultActions resultActions = createTransactionMock(1L, 2L, BigDecimal.TEN);
         String jsonResponse = resultActions.andReturn().getResponse().getContentAsString();
 
         assertEquals(HttpStatus.OK.value(), resultActions.andReturn().getResponse().getStatus());
         assertEquals(objectMapper.writeValueAsString(expectedDTO), jsonResponse);
     }
 
-    private ResultActions createTransaction(Long payerId, Long payeeId, BigDecimal value) throws Exception {
+    private ResultActions createTransactionMock(Long payerId, Long payeeId, BigDecimal value) throws Exception {
         TransactionRequestDTO requestDTO = new TransactionRequestDTO(payerId, payeeId, value);
 
         return mockMvc.perform(post(BASE_URL)
